@@ -1,24 +1,35 @@
-# Welcome to your Lovable project
+# Laxmi Bakes - Cake E-commerce Platform
 
-## Project info
+## Project Info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**Description**: Laxmi Bakes is a modern, responsive e-commerce platform for a premium cake shop, built with cutting-edge web technologies.
 
-## How can I edit this code?
+**Languages & Technologies Used**:
+- **Frontend Framework**: React 18 (TypeScript)
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: Shadcn/ui Component Library
+- **Routing**: React Router
+- **Language**: TypeScript
+- **Node.js & npm**: Runtime & Package Manager
 
-There are several ways of editing your application.
+**What We're Building**: 
+A beautiful, fully functional cake e-commerce website featuring:
+- Product catalog with featured cakes
+- Custom cake customization page
+- Shopping cart functionality
+- Customer testimonials
+- Instagram gallery integration
+- WhatsApp integration for customer support
+- Responsive design for all devices
 
-**Use Lovable**
+## How to Get Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+There are several ways to work with Laxmi Bakes code.
 
-Changes made via Lovable will be committed automatically to this repo.
+**Use Your Preferred IDE**
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Clone this repo and work locally with your own IDE. The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 Follow these steps:
 
