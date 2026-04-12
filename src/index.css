@@ -6,31 +6,29 @@
 
 @layer base {
   :root {
-    /* Honey Dukes Pastel Palette */
-    --background: 30 50% 98%;
-    --foreground: 25 30% 20%;
+    /* Brand Colors */
+    --background: 351 87% 94%;
+    --foreground: 356 30% 20%;
 
-    --card: 30 40% 99%;
-    --card-foreground: 25 30% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 356 30% 20%;
 
-    --popover: 30 40% 99%;
-    --popover-foreground: 25 30% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 356 30% 20%;
 
-    /* Soft Pastel Pink */
-    --primary: 350 60% 75%;
-    --primary-foreground: 350 60% 15%;
+    /* Primary: #df0111 */
+    --primary: 356 99% 44%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Cream/Vanilla */
-    --secondary: 40 40% 95%;
-    --secondary-foreground: 25 30% 25%;
+    /* Secondary: #fde3e7 */
+    --secondary: 351 87% 94%;
+    --secondary-foreground: 356 99% 25%;
 
-    /* Light Chocolate Brown */
-    --muted: 25 25% 92%;
-    --muted-foreground: 25 20% 45%;
+    --muted: 351 30% 92%;
+    --muted-foreground: 356 20% 45%;
 
-    /* Rose Gold Accent */
-    --accent: 15 50% 85%;
-    --accent-foreground: 15 50% 25%;
+    --accent: 351 87% 94%;
+    --accent-foreground: 356 99% 25%;
 
     /* Gold */
     --gold: 40 70% 50%;
@@ -41,28 +39,28 @@
     --chocolate-light: 25 35% 55%;
 
     /* Pink variations */
-    --pink-light: 350 70% 92%;
-    --pink-medium: 350 55% 80%;
-    --pink-dark: 350 45% 60%;
+    --pink-light: 351 87% 94%;
+    --pink-medium: 351 80% 88%;
+    --pink-dark: 351 70% 80%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 30% 88%;
-    --input: 30 30% 88%;
-    --ring: 350 60% 75%;
+    --border: 351 30% 88%;
+    --input: 351 30% 88%;
+    --ring: 356 99% 44%;
 
     --radius: 1rem;
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(350 40% 75% / 0.2);
-    --shadow-medium: 0 8px 30px -8px hsl(350 40% 75% / 0.3);
-    --shadow-large: 0 16px 50px -12px hsl(350 40% 75% / 0.35);
+    --shadow-soft: 0 4px 20px -4px hsl(351 40% 75% / 0.2);
+    --shadow-medium: 0 8px 30px -8px hsl(351 40% 75% / 0.3);
+    --shadow-large: 0 16px 50px -12px hsl(351 40% 75% / 0.35);
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(350 70% 88%) 0%, hsl(40 50% 95%) 50%, hsl(350 60% 85%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(350 70% 95%) 0%, hsl(40 50% 98%) 50%, hsl(30 50% 98%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(30 40% 99%) 0%, hsl(350 50% 97%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(356 99% 44%) 0%, hsl(356 80% 55%) 50%, hsl(356 90% 40%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(351 87% 96%) 0%, hsl(351 87% 98%) 50%, hsl(0 0% 100%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(351 87% 97%) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(40 70% 55%) 0%, hsl(35 65% 65%) 100%);
 
     --sidebar-background: 0 0% 98%;
@@ -76,25 +74,25 @@
   }
 
   .dark {
-    --background: 25 20% 10%;
-    --foreground: 30 30% 95%;
-    --card: 25 20% 12%;
-    --card-foreground: 30 30% 95%;
-    --popover: 25 20% 12%;
-    --popover-foreground: 30 30% 95%;
-    --primary: 350 50% 65%;
-    --primary-foreground: 350 60% 95%;
-    --secondary: 25 20% 18%;
-    --secondary-foreground: 30 30% 90%;
-    --muted: 25 15% 20%;
-    --muted-foreground: 25 15% 65%;
-    --accent: 15 40% 25%;
-    --accent-foreground: 15 40% 90%;
+    --background: 356 50% 10%;
+    --foreground: 351 87% 94%;
+    --card: 356 50% 12%;
+    --card-foreground: 351 87% 94%;
+    --popover: 356 50% 12%;
+    --popover-foreground: 351 87% 94%;
+    --primary: 356 99% 44%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 356 60% 18%;
+    --secondary-foreground: 351 87% 94%;
+    --muted: 356 30% 20%;
+    --muted-foreground: 356 20% 75%;
+    --accent: 356 80% 25%;
+    --accent-foreground: 351 87% 94%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 25 15% 20%;
-    --input: 25 15% 20%;
-    --ring: 350 50% 65%;
+    --border: 356 30% 20%;
+    --input: 356 30% 20%;
+    --ring: 356 99% 44%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -112,7 +110,9 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    background: linear-gradient(170deg, hsl(351, 87%, 99%) 0%, hsl(351, 87%, 95%) 100%);
+    background-attachment: fixed;
+    @apply text-foreground antialiased;
     font-family: 'Poppins', sans-serif;
   }
 

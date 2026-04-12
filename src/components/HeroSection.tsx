@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Clock, Sparkles, ChevronDown } from "lucide-react";
+import heroCakeImg from "../assets/chb.webp";
 
 const HeroSection = () => {
   const scrollToFeatured = () => {
@@ -8,7 +9,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen gradient-hero overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-20 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
@@ -35,23 +36,9 @@ const HeroSection = () => {
                 <span className="gold-accent">Made Just for You</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
-                Every cake is baked fresh after your order. No preservatives, just pure homemade goodness delivered to your doorstep.
+                Every cake is baked fresh after your order. No preservatives,
+                just pure homemade goodness delivered to your doorstep.
               </p>
-            </div>
-
-            {/* Prep time banner */}
-            <div className="flex justify-center lg:justify-start">
-              <div className="inline-flex items-center gap-3 px-5 py-3 bg-primary/10 border-2 border-primary/30 rounded-2xl">
-                <Clock className="w-5 h-5 text-primary animate-bounce-gentle" />
-                <div className="text-left">
-                  <p className="text-sm font-semibold text-primary">
-                    Freshly Made on Order
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    Delivered After Minimum 2 Hours
-                  </p>
-                </div>
-              </div>
             </div>
 
             {/* CTAs */}
@@ -62,7 +49,11 @@ const HeroSection = () => {
                 </Button>
               </Link>
               <Link to="/customize">
-                <Button variant="outline" size="xl" className="w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  size="xl"
+                  className="w-full sm:w-auto"
+                >
                   Create Custom Cake
                 </Button>
               </Link>
@@ -87,27 +78,33 @@ const HeroSection = () => {
 
           {/* Hero Image */}
           <div className="relative flex justify-center lg:justify-end animate-scale-in">
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px]">
-              {/* Decorative circle */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/30 rounded-full animate-pulse" />
-              
+            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl mt-12 lg:mt-0">
+              {/* Soft glow replacing the old hard decorative circle */}
+              <div className="absolute inset-10 bg-primary/20 rounded-full blur-[60px] animate-pulse -z-10" />
+
               {/* Main image */}
               <img
-                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80"
+                src={heroCakeImg}
                 alt="Delicious chocolate cake"
-                className="absolute inset-4 w-[calc(100%-2rem)] h-[calc(100%-2rem)] object-cover rounded-full shadow-large"
+                className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(223,1,17,0.15)] hover:-translate-y-2 hover:scale-[1.03] transition-all duration-500 relative z-10"
               />
 
               {/* Floating elements */}
-              <div className="absolute -top-4 right-8 px-4 py-2 bg-card rounded-full shadow-medium floating-animation">
+              <div className="absolute -top-4 right-4 md:right-8 lg:right-0 px-4 py-2 bg-card rounded-full shadow-medium floating-animation z-20 border border-border/50">
                 <span className="text-sm font-medium">🎂 Best Seller</span>
               </div>
-              <div className="absolute -bottom-2 left-4 px-4 py-2 bg-card rounded-full shadow-medium floating-animation" style={{ animationDelay: "0.5s" }}>
+              <div
+                className="absolute bottom-8 left-0 md:left-4 lg:-left-8 px-4 py-2 bg-card rounded-full shadow-medium floating-animation z-20 border border-border/50"
+                style={{ animationDelay: "0.5s" }}
+              >
                 <span className="text-sm font-medium">⭐ 4.9 Rating</span>
               </div>
-              <div className="absolute top-1/2 -left-4 px-4 py-2 bg-card rounded-full shadow-medium floating-animation" style={{ animationDelay: "1s" }}>
+              {/* <div
+                className="absolute top-1/2 -left-4 px-4 py-2 bg-card rounded-full shadow-medium floating-animation"
+                style={{ animationDelay: "1s" }}
+              >
                 <span className="text-sm font-medium">🥧 500+ Orders</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

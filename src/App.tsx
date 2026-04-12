@@ -10,28 +10,45 @@ import Index from "./pages/Index";
 import CakesPage from "./pages/CakesPage";
 import CustomizePage from "./pages/CustomizePage";
 import NotFound from "./pages/NotFound";
+import Admin from "./pages/Admin";
+import LoginPage from "./pages/LoginPage"; 
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { AuthProvider } from "./contexts/AuthContext"; 
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/cakes" element={<CakesPage />} />
-          <Route path="/customize" element={<CustomizePage />} />
-          <Route path="/customize/:cakeId" element={<CustomizePage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-        <WhatsAppButton />
-      </BrowserRouter>
-    </TooltipProvider>
+    <AuthProvider>
+      {" "}
+      {/* 1. Wrap the app in AuthProvider */}
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/cakes" element={<CakesPage />} />
+            <Route path="/customize" element={<CustomizePage />} />
+            <Route path="/customize/:cakeId" element={<CustomizePage />} />
+
+            {/* 2. Public Login Route */}
+            <Route path="/login" element={<LoginPage />} />
+
+            {/* 3. Protected Admin Route */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="/admin" element={<Admin />} />
+            </Route>
+
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+          <WhatsAppButton />
+        </BrowserRouter>
+      </TooltipProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 

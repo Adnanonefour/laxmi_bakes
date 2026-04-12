@@ -1,17 +1,21 @@
 import { Clock, Leaf, Heart, Sparkles, ShieldCheck, Truck } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 const features = [
   {
     icon: Clock,
     title: "Freshly Baked",
-    description: "Every cake is made fresh after your order. No pre-made cakes, ever.",
+    description:
+      "Every cake is made fresh after your order. No pre-made cakes, ever.",
     color: "text-primary",
     bg: "bg-primary/10",
   },
   {
     icon: Leaf,
     title: "Eggless Options",
-    description: "Wide range of delicious eggless cakes for vegetarian customers.",
+    description:
+      "Wide range of delicious eggless cakes for vegetarian customers.",
     color: "text-green-600",
     bg: "bg-green-100",
   },
@@ -19,64 +23,92 @@ const features = [
     icon: Heart,
     title: "Made with Love",
     description: "Home-style baking with love and attention to every detail.",
-    color: "text-pink-dark",
-    bg: "bg-pink-light",
+    color: "text-pink-500",
+    bg: "bg-pink-100",
   },
   {
     icon: ShieldCheck,
     title: "100% Hygienic",
-    description: "Prepared in clean, sanitized environment with premium ingredients.",
+    description:
+      "Prepared in a clean, sanitized environment with premium ingredients.",
     color: "text-blue-600",
     bg: "bg-blue-100",
   },
   {
     icon: Sparkles,
     title: "Custom Designs",
-    description: "Personalized cakes for birthdays, anniversaries & special occasions.",
-    color: "text-gold",
-    bg: "bg-gold-light/30",
+    description:
+      "Personalized cakes for birthdays, anniversaries & special occasions.",
+    color: "text-yellow-600",
+    bg: "bg-yellow-100",
   },
   {
     icon: Truck,
     title: "Same Day Delivery",
-    description: "Fresh delivery to your doorstep within the same day of ordering.",
-    color: "text-chocolate",
-    bg: "bg-accent",
+    description:
+      "Fresh delivery to your doorstep within the same day of ordering.",
+    color: "text-orange-600",
+    bg: "bg-orange-100",
   },
 ];
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-16 md:py-24 bg-secondary/30">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-          <span className="text-sm font-medium text-primary uppercase tracking-wider">
-            Why Honey Dukes
-          </span>
-          <h2 className="section-title mt-2 mb-4">What Makes Us Special</h2>
-          <p className="text-muted-foreground">
-            We take pride in delivering the freshest, most delicious cakes made with love and care
+    <section className="py-24 md:py-20 relative overflow-hidden">
+      {/* Decorative Blur Background Orbs */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div className="absolute top-[20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-secondary/30 blur-[120px]" />
+      </div>
+
+      <div className="container mx-auto px-4 lg:px-8">
+        {/* Editorial Header */}
+        <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-28 md:mb-36">
+          <Badge
+            variant="outline"
+            className="mb-6 border-primary/50 text-primary px-5 py-2 rounded-full uppercase tracking-[0.2em] text-xs font-bold bg-background shadow-sm"
+          >
+            Our Promise
+          </Badge>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6">
+            The Art of{" "}
+            <span className="text-primary italic font-light">Baking</span>
+          </h2>
+          <div className="w-16 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-full mb-6" />
+          <p className="text-muted-foreground text-lg">
+            We don't just bake cakes; we craft edible centerpieces for your most
+            treasured memories.
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Spacious Staggered Arch Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-14 gap-y-28 lg:pb-16">
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className="group p-6 md:p-8 bg-card rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1 animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={cn(
+                "group relative flex flex-col items-center text-center p-8 pt-16 bg-card border border-border/40 shadow-sm hover:shadow-2xl transition-all duration-700 ease-out rounded-t-[7rem] rounded-b-3xl",
+                // Stagger effect: Middle cards drop down significantly on large screens
+                [1, 4].includes(index) ? "lg:translate-y-16" : "",
+              )}
             >
-              <div
-                className={`w-14 h-14 ${feature.bg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-              >
-                <feature.icon className={`w-7 h-7 ${feature.color}`} />
+              {/* Subtle background number watermark */}
+              <div className="absolute top-12 right-8 text-[7rem] font-serif font-black text-muted/5 select-none pointer-events-none transition-transform duration-700 group-hover:-translate-y-4">
+                0{index + 1}
               </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-2">
+
+              {/* Larger Floating Overlap Icon */}
+              <div
+                className={`absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 ${feature.bg} rounded-full flex items-center justify-center shadow-lg border-[6px] border-card group-hover:-translate-y-3 group-hover:scale-110 transition-all duration-500 z-10`}
+              >
+                <feature.icon className={`w-10 h-10 ${feature.color}`} />
+              </div>
+
+              {/* Text Content */}
+              <h3 className="font-serif text-2xl font-bold text-foreground mt-2 mb-4 group-hover:text-primary transition-colors">
                 {feature.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed relative z-10">
                 {feature.description}
               </p>
             </div>

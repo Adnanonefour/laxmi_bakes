@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-const ADMIN_PHONE = "918920572245"; // Replace with actual admin number
+const ADMIN_PHONE = "919205244464"; // Replace with actual admin number
 
 const WhatsAppButton = () => {
   const handleClick = () => {

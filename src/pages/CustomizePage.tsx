@@ -1,21 +1,45 @@
 import { useState, useEffect, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { format, addHours, setHours, setMinutes, isAfter, isSameDay } from "date-fns";
-import { Calendar, Clock, Upload, ArrowLeft, MessageCircle, AlertCircle } from "lucide-react";
+import {
+  format,
+  addHours,
+  setHours,
+  setMinutes,
+  isAfter,
+  isSameDay,
+} from "date-fns";
+import {
+  Calendar,
+  Clock,
+  Upload,
+  ArrowLeft,
+  MessageCircle,
+  AlertCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import PrepTimeBanner from "@/components/PrepTimeBanner";
 import { cakes, weights, shapes, occasions, timeSlots } from "@/data/cakes";
 import { cn } from "@/lib/utils";
 
-const ADMIN_PHONE = "918920572245"; // Replace with actual admin number
+const ADMIN_PHONE = "919205244464"; // Replace with actual admin number
 const MIN_PREP_HOURS = 2;
 
 const CustomizePage = () => {
@@ -23,9 +47,7 @@ const CustomizePage = () => {
   const navigate = useNavigate();
 
   // Find cake or use default
-  const selectedCake = cakeId 
-    ? cakes.find((c) => c.id === cakeId) 
-    : null;
+  const selectedCake = cakeId ? cakes.find((c) => c.id === cakeId) : null;
 
   // Form state
   const [cake, setCake] = useState(selectedCake?.id || "");
@@ -71,7 +93,7 @@ const CustomizePage = () => {
       const [startTime] = slot.split(" - ");
       const [time, period] = startTime.split(" ");
       let [hours] = time.split(":").map(Number);
-      
+
       if (period === "PM" && hours !== 12) hours += 12;
       if (period === "AM" && hours === 12) hours = 0;
 
@@ -94,9 +116,10 @@ const CustomizePage = () => {
   // Calculate price
   const currentCake = cakes.find((c) => c.id === cake);
   const currentWeight = weights.find((w) => w.value.toString() === weight);
-  const price = currentCake && currentWeight 
-    ? Math.round(currentCake.startingPrice * currentWeight.priceMultiplier)
-    : 0;
+  const price =
+    currentCake && currentWeight
+      ? Math.round(currentCake.startingPrice * currentWeight.priceMultiplier)
+      : 0;
 
   // Handle image upload
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -170,7 +193,10 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
       return;
     }
     if (!deliveryTime) {
-      toast({ title: "Please select a delivery time slot", variant: "destructive" });
+      toast({
+        title: "Please select a delivery time slot",
+        variant: "destructive",
+      });
       return;
     }
     if (!customerName.trim()) {
@@ -178,7 +204,10 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
       return;
     }
     if (!phone.trim() || phone.length < 10) {
-      toast({ title: "Please enter a valid phone number", variant: "destructive" });
+      toast({
+        title: "Please enter a valid phone number",
+        variant: "destructive",
+      });
       return;
     }
     if (!address.trim()) {
@@ -212,7 +241,9 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="section-title mb-2">
-            {selectedCake ? `Customize ${selectedCake.name}` : "Create Your Perfect Cake"}
+            {selectedCake
+              ? `Customize ${selectedCake.name}`
+              : "Create Your Perfect Cake"}
           </h1>
           <p className="text-muted-foreground">
             Personalize every detail and we'll bake it fresh for you
@@ -228,7 +259,9 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
           {/* Cake Selection (if not pre-selected) */}
           {!selectedCake && (
             <div className="p-6 bg-card rounded-2xl shadow-soft space-y-4">
-              <h2 className="font-display text-xl font-semibold">Select Cake</h2>
+              <h2 className="font-display text-xl font-semibold">
+                Select Cake
+              </h2>
               <Select value={cake} onValueChange={setCake}>
                 <SelectTrigger className="rounded-xl">
                   <SelectValue placeholder="Choose a cake" />
@@ -261,7 +294,7 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
                       "px-3 py-2 rounded-xl text-sm font-medium transition-all",
                       weight === w.value.toString()
                         ? "bg-primary text-primary-foreground shadow-soft"
-                        : "bg-muted text-foreground hover:bg-accent"
+                        : "bg-muted text-foreground hover:bg-accent",
                     )}
                   >
                     {w.label}
@@ -292,14 +325,22 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
             {/* Egg/Eggless */}
             <div className="space-y-3">
               <Label>Type</Label>
-              <RadioGroup value={eggless} onValueChange={setEggless} className="flex gap-4">
+              <RadioGroup
+                value={eggless}
+                onValueChange={setEggless}
+                className="flex gap-4"
+              >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="eggless" id="eggless" />
-                  <Label htmlFor="eggless" className="cursor-pointer">Eggless</Label>
+                  <Label htmlFor="eggless" className="cursor-pointer">
+                    Eggless
+                  </Label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="egg" id="egg" />
-                  <Label htmlFor="egg" className="cursor-pointer">With Egg</Label>
+                  <Label htmlFor="egg" className="cursor-pointer">
+                    With Egg
+                  </Label>
                 </div>
               </RadioGroup>
             </div>
@@ -317,7 +358,7 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
                       "px-3 py-2 rounded-xl text-sm font-medium transition-all",
                       shape === s
                         ? "bg-primary text-primary-foreground shadow-soft"
-                        : "bg-muted text-foreground hover:bg-accent"
+                        : "bg-muted text-foreground hover:bg-accent",
                     )}
                   >
                     {s}
@@ -353,13 +394,17 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
                 maxLength={50}
                 className="rounded-xl"
               />
-              <p className="text-xs text-muted-foreground">{customMessage.length}/50 characters</p>
+              <p className="text-xs text-muted-foreground">
+                {customMessage.length}/50 characters
+              </p>
             </div>
           </div>
 
           {/* Delivery Details */}
           <div className="p-6 bg-card rounded-2xl shadow-soft space-y-6">
-            <h2 className="font-display text-xl font-semibold">Delivery Details</h2>
+            <h2 className="font-display text-xl font-semibold">
+              Delivery Details
+            </h2>
 
             {/* Date */}
             <div className="space-y-3">
@@ -370,11 +415,13 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
                     variant="outline"
                     className={cn(
                       "w-full justify-start text-left font-normal rounded-xl",
-                      !deliveryDate && "text-muted-foreground"
+                      !deliveryDate && "text-muted-foreground",
                     )}
                   >
                     <Calendar className="mr-2 h-4 w-4" />
-                    {deliveryDate ? format(deliveryDate, "EEEE, MMMM d, yyyy") : "Select date"}
+                    {deliveryDate
+                      ? format(deliveryDate, "EEEE, MMMM d, yyyy")
+                      : "Select date"}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
@@ -394,11 +441,16 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
             <div className="space-y-3">
               <Label>Delivery Time Slot</Label>
               {!deliveryDate ? (
-                <p className="text-sm text-muted-foreground">Please select a date first</p>
+                <p className="text-sm text-muted-foreground">
+                  Please select a date first
+                </p>
               ) : availableTimeSlots.length === 0 ? (
                 <div className="flex items-center gap-2 p-3 bg-destructive/10 rounded-xl text-destructive text-sm">
                   <AlertCircle className="w-4 h-4" />
-                  <span>No available time slots for this date. Please select a different date.</span>
+                  <span>
+                    No available time slots for this date. Please select a
+                    different date.
+                  </span>
                 </div>
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
@@ -411,7 +463,7 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
                         "flex items-center justify-center gap-2 px-3 py-3 rounded-xl text-sm font-medium transition-all",
                         deliveryTime === slot
                           ? "bg-primary text-primary-foreground shadow-soft"
-                          : "bg-muted text-foreground hover:bg-accent"
+                          : "bg-muted text-foreground hover:bg-accent",
                       )}
                     >
                       <Clock className="w-4 h-4" />
@@ -439,7 +491,9 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
                 >
                   <Upload className="w-8 h-8 text-muted-foreground" />
                   <span className="text-sm text-muted-foreground">
-                    {referenceImage ? referenceImage.name : "Upload design reference (Max 5MB)"}
+                    {referenceImage
+                      ? referenceImage.name
+                      : "Upload design reference (Max 5MB)"}
                   </span>
                 </label>
               </div>
@@ -468,7 +522,9 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
                   id="phone"
                   type="tel"
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
+                  onChange={(e) =>
+                    setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))
+                  }
                   placeholder="10-digit mobile number"
                   className="rounded-xl"
                   required
@@ -502,14 +558,22 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
             {/* Payment */}
             <div className="space-y-3">
               <Label>Payment Method</Label>
-              <RadioGroup value={payment} onValueChange={setPayment} className="flex gap-4">
+              <RadioGroup
+                value={payment}
+                onValueChange={setPayment}
+                className="flex gap-4"
+              >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="cod" id="cod" />
-                  <Label htmlFor="cod" className="cursor-pointer">Cash on Delivery</Label>
+                  <Label htmlFor="cod" className="cursor-pointer">
+                    Cash on Delivery
+                  </Label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="upi" id="upi" />
-                  <Label htmlFor="upi" className="cursor-pointer">UPI</Label>
+                  <Label htmlFor="upi" className="cursor-pointer">
+                    UPI
+                  </Label>
                 </div>
               </RadioGroup>
             </div>
@@ -517,13 +581,18 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
 
           {/* Order Summary */}
           <div className="p-6 bg-gradient-card rounded-2xl shadow-medium space-y-4">
-            <h2 className="font-display text-xl font-semibold">Order Summary</h2>
-            
+            <h2 className="font-display text-xl font-semibold">
+              Order Summary
+            </h2>
+
             <div className="flex items-center justify-between py-4 border-b border-border">
               <div>
-                <p className="font-medium">{currentCake?.name || "Select a cake"}</p>
+                <p className="font-medium">
+                  {currentCake?.name || "Select a cake"}
+                </p>
                 <p className="text-sm text-muted-foreground">
-                  {currentWeight?.label} • {eggless === "eggless" ? "Eggless" : "With Egg"} • {shape}
+                  {currentWeight?.label} •{" "}
+                  {eggless === "eggless" ? "Eggless" : "With Egg"} • {shape}
                 </p>
               </div>
               <p className="text-2xl font-bold text-primary">₹{price}</p>
@@ -532,7 +601,10 @@ Mode: ${payment === "cod" ? "Cash on Delivery" : "UPI"}
             {/* Prep Time Reminder */}
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Clock className="w-4 h-4" />
-              <span>All cakes are freshly prepared. Delivery scheduled minimum 2 hours after order.</span>
+              <span>
+                All cakes are freshly prepared. Delivery scheduled minimum 2
+                hours after order.
+              </span>
             </div>
 
             <Button
