@@ -16,6 +16,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const initAuth = async () => {
+      // Add a fallback timeout in case Supabase API hangs (e.g., DNS issue or paused project)
+      const timeoutId = setTimeout(() => {
+        console.warn("Supabase auth init timed out. Continuing unauthenticated.");
+        setLoading(false);
+      }, 5000);
+
       try {
         const {
           data: { session: initialSession },
@@ -25,6 +31,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       } catch (error) {
         console.error("Auth init error:", error);
       } finally {
+        clearTimeout(timeoutId);
         setLoading(false);
       }
     };

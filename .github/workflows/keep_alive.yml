@@ -1,0 +1,16 @@
+name: Supabase Keep Alive
+on:
+  schedule:
+    # This "Cron" syntax tells GitHub to run this every 4 days at midnight
+    - cron: '0 0 */4 * *'
+  workflow_dispatch: # This adds a "Run" button so you can test it manually
+
+jobs:
+  ping_supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Request
+        run: |
+          curl -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/" \
+          -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
