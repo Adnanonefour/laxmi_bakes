@@ -20,16 +20,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link 
-            to="/" 
-            className="flex items-center gap-2 group"
-          >
+          <Link to="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
               <Cake className="w-5 h-5 md:w-6 md:h-6 text-primary" />
             </div>
             <div className="flex flex-col">
               <span className="font-display text-xl md:text-2xl font-bold text-foreground">
-                Honey Dukes
+                Laxmi Bakes
               </span>
               <span className="text-[10px] md:text-xs text-muted-foreground -mt-1 hidden sm:block">
                 Freshly Baked with Love
@@ -44,9 +41,7 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 className={`relative text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(link.path) 
-                    ? "text-primary" 
-                    : "text-foreground"
+                  isActive(link.path) ? "text-primary" : "text-foreground"
                 }`}
               >
                 {link.name}

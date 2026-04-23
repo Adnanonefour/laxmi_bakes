@@ -90,7 +90,7 @@ const HeroSection = () => {
               />
 
               {/* Floating elements */}
-              <div className="absolute -top-4 right-4 md:right-8 lg:right-0 px-4 py-2 bg-card rounded-full shadow-medium floating-animation z-20 border border-border/50">
+              {/* <div className="absolute -top-4 right-4 md:right-8 lg:right-0 px-4 py-2 bg-card rounded-full shadow-medium floating-animation z-20 border border-border/50">
                 <span className="text-sm font-medium">🎂 Best Seller</span>
               </div>
               <div
@@ -98,7 +98,7 @@ const HeroSection = () => {
                 style={{ animationDelay: "0.5s" }}
               >
                 <span className="text-sm font-medium">⭐ 4.9 Rating</span>
-              </div>
+              </div> */}
               {/* <div
                 className="absolute top-1/2 -left-4 px-4 py-2 bg-card rounded-full shadow-medium floating-animation"
                 style={{ animationDelay: "1s" }}

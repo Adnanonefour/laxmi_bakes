@@ -44,9 +44,9 @@ const features = [
   },
   {
     icon: Truck,
-    title: "Same Day Delivery",
+    title: "On time Delivery",
     description:
-      "Fresh delivery to your doorstep within the same day of ordering.",
+      "Fresh delivery to your doorstep within the given time.",
     color: "text-orange-600",
     bg: "bg-orange-100",
   },
