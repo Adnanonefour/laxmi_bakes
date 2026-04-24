@@ -3,9 +3,9 @@ import { Truck, Sparkles, Gift, Utensils } from "lucide-react";
 const OurPromiseBanner = () => {
   return (
     <div className="bg-secondary/50 border border-primary/10 rounded-3xl p-8 md:p-12 mb-8 shadow-sm backdrop-blur-sm w-full">
-      <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-12 text-center md:text-left italic">
-        Our Promise
-      </h2>
+      <h2 className="text-2xl md:text-3xl font-display font-bold text-primary mb-12 text-center italic w-full">
+  Our Promise
+</h2>
       
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 mb-10 text-center">
         {/* Promise 1 */}
